@@ -10,13 +10,13 @@ int main() {
     printf("Por favor insira a data que voce deseja verificar no formato 'dia mes ano' : ");
     scanf("%d%d%d", &dia, &mes, &ano);
 
-    // checar se a data é invalida
+    // checar se a data e invalida
     if ((dia < 1 || dia > 31) || (mes < 1 || mes > 12) || (ano < 1)) {
         printf("Erro: A data inserida e invalida. Certifique-se de inserir uma data existente.\n");
         return 1;
     }
 
-    // checar se a quantidade de dias em determinado mes está correta
+    // checar se a quantidade de dias em determinado mes esta correta
     if (mes == 2) {
         if (dia > 29 || (dia == 29 && !anoBissexto(ano))) {
             printf("Erro: Fevereiro nao pode ter %d dias em %d.\n", dia, ano);
