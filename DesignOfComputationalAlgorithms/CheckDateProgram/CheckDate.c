@@ -10,7 +10,7 @@ int main() {
     printf("Por favor insira a data que voce deseja verificar no formato 'dia mes ano' : ");
     scanf("%d%d%d", &dia, &mes, &ano);
 
-    // checar se a data e invalida
+    // checar se a data e invalida nos padroes de calendario
     if ((dia < 1 || dia > 31) || (mes < 1 || mes > 12) || (ano < 1)) {
         printf("Erro: A data inserida e invalida. Certifique-se de inserir uma data existente.\n");
         return 1;
