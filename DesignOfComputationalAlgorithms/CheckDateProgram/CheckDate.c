@@ -32,7 +32,3 @@ int main() {
 
     return 0;
 }
-
-// meses com 31 dias: 1, 3, 5, 7, 8, 10, 12
-// meses com 30 dias: 4, 6, 9, 11
-// meses com 28 ou 29 dias: 2
