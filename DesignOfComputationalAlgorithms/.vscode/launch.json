@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/HOME/Documents/Code/College/DesignOfComputationalAlgorithms",
-      "program": "c:/Users/HOME/Documents/Code/College/DesignOfComputationalAlgorithms/build/Debug/outDebug",
+      "cwd": "c:/Users/HOME/Documents/Code/College/DesignOfComputationalAlgorithms/Class3-TriangleValidator",
+      "program": "c:/Users/HOME/Documents/Code/College/DesignOfComputationalAlgorithms/Class3-TriangleValidator/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

@@ -12,7 +12,7 @@ int main() {
 
     // checar se a data e invalida nos padroes de calendario
     if ((dia < 1 || dia > 31) || (mes < 1 || mes > 12) || (ano < 1)) {
-        printf("Erro: A data inserida e invalida. Certifique-se de inserir uma data existente.\n");
+        printf("Erro: A data inserida é inválida. Certifique-se de inserir uma data existente.\n");
         return 1;
     }
 
