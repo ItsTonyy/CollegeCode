@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/HOME/Documents/Code/College/DesignOfComputationalAlgorithms/Class3-PasswordAutentication",
-      "program": "c:/Users/HOME/Documents/Code/College/DesignOfComputationalAlgorithms/Class3-PasswordAutentication/build/Debug/outDebug",
+      "cwd": "c:/Users/HOME/Documents/Code/College/DesignOfComputationalAlgorithms/Class5-Mdc",
+      "program": "c:/Users/HOME/Documents/Code/College/DesignOfComputationalAlgorithms/Class5-Mdc/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
