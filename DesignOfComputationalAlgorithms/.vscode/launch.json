@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/HOME/Documents/Code/College/DesignOfComputationalAlgorithms/Class5-Mdc",
-      "program": "c:/Users/HOME/Documents/Code/College/DesignOfComputationalAlgorithms/Class5-Mdc/build/Debug/outDebug",
+      "cwd": "c:/Users/HOME/Documents/Code/College/DesignOfComputationalAlgorithms/Class5-MainMenu",
+      "program": "c:/Users/HOME/Documents/Code/College/DesignOfComputationalAlgorithms/Class5-MainMenu/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
