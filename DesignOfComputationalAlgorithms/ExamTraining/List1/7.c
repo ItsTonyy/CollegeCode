@@ -31,9 +31,7 @@
     oneNotes = MoneyToBeDivided / 1;
     MoneyToBeDivided %= 1;
 
-
     printf("\nO valor, em reais, a ser sacado sera dado em %d nota(s) de 100, %d nota(s) de 50, %d nota(s) de 20, %d nota(s) de 10, %d nota(s) de 5, %d nota(s) de 2, %d nota(s) de 1.\n", oneHundredNotes, fiftyNotes, twentyNotes, tenNotes, fiveNotes, twoNotes, oneNotes);
-
 }
 
 int main() {
