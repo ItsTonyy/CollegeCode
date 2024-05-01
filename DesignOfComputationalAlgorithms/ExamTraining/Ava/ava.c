@@ -148,10 +148,10 @@ void resolverQuestao1() {
   float n;
   
   system(CLEAR);
-  printf("Na questão está escrito que:\nAX = N.XB\n\nInsira o valor de \"N\": ");
+  printf("Na questao esta escrito que:\nAX = N.XB\n\nInsira o valor de \"N\": ");
   scanf("%f", &n);
 
-  printf("\n\nA resposta é: %.3f", 1/(1+n));
+  printf("\n\nResposta: %.3f", 1/(1+n));
   
   sair();
 }
@@ -178,7 +178,7 @@ void resolverQuestao2() {
 
   area_do_triangulo = calcularNorma(produto_vetorial, 3)/2;
   
-  printf("\n\nA resposta é: %.3f", area_do_triangulo*2);
+  printf("\n\nResposta: %.3f", area_do_triangulo*2);
 
   sair();
 }
@@ -212,13 +212,13 @@ void resolverQuestao3() {
 
   distancia = calcularDistanciaPontoAlgo(pontoNcomD, pontoClinha, 4);
   
-  printf("\n\nA resposta da letra A e: %.2f", distancia);
+  printf("\n\nResposta da letra A: %.2f", distancia);
   
   volume = calcularProdutoMisto(pontoA, pontoB, pontoC);
   if (volume < 0) {
     volume *= -1;
   }
-  printf("\n\nA resposta da letra B e: %.2f", volume);
+  printf("\n\nResposta da letra B: %.2f", volume);
 
   sair();
 }
@@ -235,7 +235,7 @@ void resolverQuestao4() {
   scanf("%f %f %f %f", &pontoB[0], &pontoB[1], &pontoB[2], &pontoB[3]);
 
   if(pontoA[0] != 1 || pontoA[1] != -1 || pontoB[0] != -1 || pontoB[1] != 3) {
-    printf("\nVerifique os valores inseridos. Caso estejam todos certos, infelizmente esse programa não sera capaz de resolver a questao.");
+    printf("\nVerifique os valores inseridos. Caso estejam todos certos, infelizmente esse programa nao sera capaz de resolver a questao.");
     sair();
     return;
   }
@@ -246,7 +246,7 @@ void resolverQuestao4() {
   Y = ((3*normaA)-normaB)/(normaB+normaA);
   a = ((X+Y)/2)+X;
 
-  printf("\n\nA resposta e: %.3f", a);
+  printf("\n\nResposta: %.3f", a);
 
   sair();
 }
@@ -272,7 +272,7 @@ void resolverQuestao5() {
   
   calcularAmaisB(pontoAQ, pontoA, pontoQ, 4);
 
-  printf("\n\nA resposta é:\nQ(%.3f, %.3f, %.3f, %.3f)", pontoQ[0], pontoQ[1], pontoQ[2], pontoQ[3]);
+  printf("\n\nResposta:\nQ(%.3f, %.3f, %.3f, %.3f)", pontoQ[0], pontoQ[1], pontoQ[2], pontoQ[3]);
 
   sair();
 }
@@ -316,8 +316,8 @@ void resolverQuestao6() {
   anguloRetasEmGraus = converterRadParaGraus(anguloRetasEmRad);
 
   // Printando respostas
-  printf("\n\nA resposta da letra A e: %.2f\n", anguloRetasEmGraus);
-  printf("A resposta da letra B e: %.2f", anguloPlanosEmGraus);
+  printf("\n\nResposta da letra A: %.2f\n", anguloRetasEmGraus);
+  printf("Resposta da letra B: %.2f", anguloPlanosEmGraus);
 
   sair();
 }
