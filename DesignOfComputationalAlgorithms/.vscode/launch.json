@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/HOME/Documents/Code/College/DesignOfComputationalAlgorithms/ExamTraining/List1",
-      "program": "c:/Users/HOME/Documents/Code/College/DesignOfComputationalAlgorithms/ExamTraining/List1/build/Debug/outDebug",
+      "cwd": "c:/Users/HOME/Documents/Code/College/DesignOfComputationalAlgorithms/Class6-VegetableCount",
+      "program": "c:/Users/HOME/Documents/Code/College/DesignOfComputationalAlgorithms/Class6-VegetableCount/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
