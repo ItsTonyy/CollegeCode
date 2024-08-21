@@ -38,5 +38,6 @@ int main() {
     if(leProduto(&p)) {
         imprimeProduto(&p);
     }
+    
     return 0;
 }
