@@ -10,12 +10,12 @@ int main() {
   printf("Quantas vezes quer multiplicar ele: ");
   scanf("%i", &multiplo);
 
+  int aux = num;
+
   if(multiplo == 0 || num == 0) {
     printf("\nResultado: 0");
     return 1;
   }
-
-  int aux = num;
 
   for(int i = multiplo - 1; i > 0; i--) {
     num = aux + num;
