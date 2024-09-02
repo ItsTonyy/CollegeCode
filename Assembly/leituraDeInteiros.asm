@@ -1,7 +1,7 @@
 .data
 	saudacao: .asciiz "Olá. Por favor, forneça sua idade: "
 	saida: .asciiz "Sua idade é: "
-
+	
 .text
 	# Imprimir uma string
 	li $v0, 4 
@@ -21,4 +21,3 @@
 	li $v0, 1
 	move $a0, $t0
 	syscall
-	
