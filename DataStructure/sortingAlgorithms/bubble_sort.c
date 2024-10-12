@@ -27,8 +27,8 @@ void betterBubble(int arr[], int qt) {
     for(int j = i + 1; j < qt; j++) {
       if(arr[i] > arr[j]) {
         int aux = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = aux;
+        arr[i] = arr[j];
+        arr[j] = aux;
       }
     }
   }
