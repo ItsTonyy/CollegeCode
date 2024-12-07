@@ -15,7 +15,9 @@ void menu() {
   do {
     cout << "--- Comandos ---\n";
     cout << "[0] Para parar o programa\n";
-    cout << "[!= 0] Inserir um no\n";
+    cout << "[1] Inserir um no\n";
+    cout << "[2] Remover um no\n";
+    cout << "[3] Listar a lista encadeada\n";
     cout << "Insira um comando: ";
     cin >> numMenu; // can i access numMenu from here?
   } while (numMenu != 0);
