@@ -12,7 +12,7 @@ struct conta c, cc[20], *cPtr;
 // 
 
 
-int main() {`
+int main() {
 
 
 
