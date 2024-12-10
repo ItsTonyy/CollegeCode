@@ -33,21 +33,26 @@ void push(int value) {
   p->num = value;
   p->prox = topo; // novo no tem o prox pro no anterior
   topo = p;       // topo agora aponta pro ultimo no adicionado
-  cout << "\nElemento adicionado na pilha.\n";
+  cout << "\n~ Elemento adicionado na pilha.\n";
 }
 
 void pop() {
-  noPtr aux = topo;
   if (topo == nullptr) {
-    cout << "Lista Vazia.";
+    cout << "\n~ Lista vazia.\n";
     return;
   }
-  topo = topo->prox; // topo agora aponta para o penultimo no
-  delete (aux);      // o ultimo no é posto em aux e depois aux é deletado
-  cout << "\nO ultimo elemento da pilha foi removido.\n";
+  noPtr aux = topo->prox;
+  free(topo);
+  topo = aux;
+  cout << "\n~ O ultimo elemento da pilha foi removido.\n";
 }
 
 void printList() {
+  if (topo == nullptr) {
+    cout << "\n~ Lista Vazia.\n";
+    return;
+  }
+
   while (topo != nullptr) {
     cout << topo->num << " "; // printando o número de cada no
     topo = topo->prox;        // topo aponta para o proximo no
@@ -71,8 +76,9 @@ int main() {
         pop();
         break;
       case 3:
-        cout
+        cout << "\n";
         printList();
+        cout << "\n";
         break;
     }
   } while (userChoice != 0);
