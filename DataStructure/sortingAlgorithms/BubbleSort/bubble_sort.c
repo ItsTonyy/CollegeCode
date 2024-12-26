@@ -25,7 +25,7 @@ void bubble(int v[], int qt) {
 void betterBubble(int arr[], int qt) {
   for(int i = 0; i < qt - 1; i++) {
     for(int j = i + 1; j < qt; j++) {
-      if(arr[i] > arr[j]) {
+      if(arr[i] < arr[j]) {
         int aux = arr[i];
         arr[i] = arr[j];
         arr[j] = aux;
