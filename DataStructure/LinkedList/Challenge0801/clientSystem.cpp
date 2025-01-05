@@ -21,12 +21,44 @@ struct alternativeNode {
   alternativeNode(int number): cod(number), pr(nullptr) {}
 };
 
-int addClient(int num) {
+int addClient(mainNode *head, int num) {
+  mainNode *newNode = new mainNode(num);
 
+  if(head == nullptr) {
+    head = newnode;
+  } else {
+    mainNode *curr = head;
+
+    while (curr->prox != nullptr) {
+      curr = curr->prox;
+    }
+
+    if(num - curr->info != 100) {
+      cout << "O valor tem que ser de 100 em 100. O número do cliente anterior é de: " << curr->info << endl;
+      exit;
+    }
+
+    curr->next = newNode;
+    newNode->ant = curr;
+  }
+
+  return head;
 }
 
-int buyProduct(int clientCode, int productCode) {
+int buyProduct(mainNode *head, int clientCode, int productCode) {
+  mainNode *curr = head;
 
+  while (curr != nullptr){
+    if(curr->info == clientCode) {
+      curr->p = new alternativeNode(productCode);
+      cout >> "Pedido realizado com sucesso.";
+      return;
+    }
+
+    curr = curr->prox;
+  }
+
+  cout >> "Pedido não encontrado.";
 }
 
 int removeClient(int clientCode) {
