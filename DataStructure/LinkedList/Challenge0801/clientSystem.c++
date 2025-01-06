@@ -74,7 +74,7 @@ void buyProduct(mainNode *&head, int clientCode, int productCode) {
     curr = curr->prox;
   }
 
-  cout << "Pedido nao encontrado." << endl;
+  cout << endl << "Pedido nao encontrado." << endl;
 }
 
 void removeClient(mainNode *&head, int clientCode) {
@@ -95,6 +95,7 @@ void removeClient(mainNode *&head, int clientCode) {
       if(curr->ant == nullptr) {
         head = nullptr;
         delete curr;
+        cout << "\nCliente numero " << clientCode << " liberado.\n";
         return;
       }
 
@@ -102,18 +103,20 @@ void removeClient(mainNode *&head, int clientCode) {
       if(curr->prox == nullptr) {
         curr->ant->prox = nullptr;
         delete curr;
+        cout << "\nCliente numero " << clientCode << " liberado.\n";
         return;
       }
 
       curr->prox->ant = curr->ant;
       curr->ant->prox = curr->prox;
+      cout << "\nCliente numero " << clientCode << " liberado.\n";
 
       delete temp2;
     }
 
     curr = curr->prox;
   } 
-  cout << "\nCliente numero " << clientCode << " liberado.\n";
+  cout << "\nCliente numero " << clientCode << " nao encontrado.\n";
 }
 
 void fowardTransversal(mainNode *&head) {
