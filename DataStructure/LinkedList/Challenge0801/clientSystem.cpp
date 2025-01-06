@@ -10,7 +10,7 @@ struct mainNode {
   mainNode* prox;
   
   // constructor
-  mainNode(int number): info(number), p(nullptr,) prox(nullptr), ant(nullptr) {}
+  mainNode(int number): info(number), p(nullptr), ant(nullptr), prox(nullptr) {}
 };
 
 struct alternativeNode {
@@ -21,57 +21,78 @@ struct alternativeNode {
   alternativeNode(int number): cod(number), pr(nullptr) {}
 };
 
-int addClient(mainNode *head, int num) {
+void addClient(mainNode *head, int num) {
   mainNode *newNode = new mainNode(num);
 
   if(head == nullptr) {
-    head = newnode;
+    *head = newnode;
   } else {
-    mainNode *curr = head;
+    mainNode *curr = *head;
 
     while (curr->prox != nullptr) {
       curr = curr->prox;
     }
-
-    if(num - curr->info != 100) {
-      cout << "O valor tem que ser de 100 em 100. O número do cliente anterior é de: " << curr->info << endl;
-      exit;
-    }
-
-    curr->next = newNode;
+  
+    curr->info = num;
+    curr->prox = newNode;
     newNode->ant = curr;
   }
-
-  return head;
 }
 
-int buyProduct(mainNode *head, int clientCode, int productCode) {
+void buyProduct(mainNode *head, int clientCode, int productCode) {
   mainNode *curr = head;
 
   while (curr != nullptr){
     if(curr->info == clientCode) {
-      curr->p = new alternativeNode(productCode);
-      cout >> "Pedido realizado com sucesso.";
-      return;
+      alternativeNode *newSLINode = new alternativeNode(productCode);
+      alternativeNode* sli = curr->p;
+
+      if (sli == nullptr) {
+        sli = new alternativeNode(productCode);
+        cout << "Pedido realizado com sucesso.";
+        return;
+      }
+      
+      while (sli->pr != nullptr) {
+        sli = sli->pr;
+      }
+
+      sli->pr = newSLINode; 
+      return;    
     }
 
     curr = curr->prox;
   }
 
-  cout >> "Pedido não encontrado.";
+  cout << "Pedido nao encontrado." >> endl;
 }
 
-int removeClient(int clientCode) {
-  
+void removeClient(mainNode *head, int clientCode) {
+  mainNode* curr = head;
+
+  while (curr != nullptr){
+    if(curr->info == clientCode) {
+      while(curr->p != nullptr) {
+        cout << "Codigo: " << curr->p->cod;
+        alternativeNode* temp = curr->p;
+        curr->p = curr->p->pr;
+        delete temp;
+      }
+    }
+
+    curr = curr->prox;
+  }
+
+  cout << "Cliente numero " << clientCode << " liberado.";
 }
 
-void fowardTransversal(Node* head) {
-  Node* current = head;
+void fowardTransversal(mainNode* head) {
+  mainNode *curr = head;
 
-  while(current != nullptr) {
-    cout << current->data << " ";
+  while(curr != nullptr) {
+    cout << curr->info << endl;
 
-    current = current->next;
+    curr = curr->prox;
   }
 
   cout << endl;
@@ -79,20 +100,59 @@ void fowardTransversal(Node* head) {
 
 int menu() {
   int numMenu;
+
   cout << "\n--- Comandos ---\n";
   cout << "[0] Para parar o programa.\n";
-  cout << "[1] Inserir um no.\n";
-  cout << "[2] Remover um no.\n";
-  cout << "[3] Printar a lista encadeada.\n";
+  cout << "[1] Inserir um cliente.\n";
+  cout << "[2] Remover uma compra .\n";
+  cout << "[3] remover um cliente.\n";
+  cout << "[4] printar a lista dos clientes.\n";
   cout << "Insira um comando: ";
   cin >> numMenu;
-  if (numMenu == 0) {
-    exit(0);
-  }
+
   return numMenu;
 }
 
 int main() {
-  
+  mainNode *head = nullptr;
+
+  int userChoice;
+  cout << "Bem vindo ao sistema de manuntencao de clientes!\n";
+  cout << "-----------------------------------------------------\n";
+  do {
+    int clientCode, productCode;
+    userChoice = menu();
+
+    switch (userChoice) {
+      case 1:
+        int num;
+
+        do {
+          cout << "Insira o numero de identificacao (deve ser 100 maior que o cliente anterior): ";
+          cin >> num;
+        } while (num - curr->info != 100);
+
+        addClient(&head, num);
+        break;
+      case 2:
+        cout << "insira o seu numero de cliente: ";
+        cin >> clientCode;
+        cout << "insira o numero do seu produto: ";
+        cin >> productCode;
+
+        buyProduct(&head, clientCode, productCode);
+        break;
+      case 3:
+        cout << "insira o seu numero de cliente: ";
+        cin >> clientCode;
+
+        removeClient(&head, clientCode);
+        break;
+      case 4: 
+        fowardTransversal(&head);
+      break;
+    }
+  } while (userChoice != 0);
+
   return 0;
 }
