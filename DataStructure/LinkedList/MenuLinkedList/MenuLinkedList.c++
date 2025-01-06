@@ -10,8 +10,6 @@ struct no {
 
 typedef struct no *noPtr;
 
-noPtr topo = nullptr;
-
 int menu() {
   int numMenu;
   cout << "\n--- Comandos ---\n";
@@ -27,59 +25,65 @@ int menu() {
   return numMenu;
 }
 
-void push(int value) {
-  noPtr p;
-  p = new no;
+void push(noPtr *topo, int value) {
+  noPtr p = new no;
   p->num = value;
-  p->prox = topo; // novo no tem o prox pro no anterior
-  topo = p;       // topo agora aponta pro ultimo no adicionado
+  p->prox = *topo; // Novo nó aponta para o nó atual do topo
+  *topo = p;       // Atualiza o topo para o novo nó
   cout << "\n~ Elemento adicionado na pilha.\n";
 }
 
-void pop() {
+void pop(noPtr *topo) {
+  if (*topo == nullptr) {
+    cout << "\n~ Lista vazia.\n";
+    return;
+  }
+  noPtr aux = *topo; // Nó a ser removido
+  *topo = (*topo)->prox; // Atualiza o topo para o próximo nó
+  delete aux; // Libera memória do nó removido
+  cout << "\n~ O ultimo elemento da pilha foi removido.\n";
+}
+
+void printList(noPtr topo) {
   if (topo == nullptr) {
     cout << "\n~ Lista vazia.\n";
     return;
   }
-  noPtr aux = topo->prox;
-  free(topo);
-  topo = aux;
-  cout << "\n~ O ultimo elemento da pilha foi removido.\n";
-}
-
-void printList() {
-  if (topo == nullptr) {
-    cout << "\n~ Lista Vazia.\n";
-    return;
-  }
-
+  cout << "\n~ Lista: ";
   while (topo != nullptr) {
-    cout << topo->num << " "; // printando o número de cada no
-    topo = topo->prox;        // topo aponta para o proximo no
+    cout << topo->num << " "; // Imprime o número de cada nó
+    topo = topo->prox;        // Avança para o próximo nó
   }
+  cout << "\n";
 }
 
 int main() {
+  noPtr topo = nullptr;
+
   int userChoice;
-  cout << "Bem vindo ao criador de lista simplesmente encadeada!\n";
+  cout << "Bem-vindo ao criador de lista simplesmente encadeada!\n";
   cout << "-----------------------------------------------------\n";
   do {
     userChoice = menu();
     switch (userChoice) {
-      case 1:
+      case 1: {
         int value;
         cout << "Insira o valor a ser adicionado dentro do no: ";
         cin >> value;
-        push(value);
+        push(&topo, value);
         break;
+      }
       case 2:
-        pop();
+        pop(&topo);
         break;
       case 3:
-        cout << "\n";
-        printList();
-        cout << "\n";
+        printList(topo);
         break;
+      case 0:
+        cout << "Encerrando o programa.\n";
+        break;
+      default:
+        cout << "Comando invalido.\n";
     }
   } while (userChoice != 0);
 
