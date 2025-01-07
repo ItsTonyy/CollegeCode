@@ -144,7 +144,7 @@ int menu() {
   cout << "[1] Inserir um cliente.\n";
   cout << "[2] Adicionar uma compra.\n";
   cout << "[3] remover um cliente.\n";
-  cout << "[4] printar a lista dos clientes.\n";
+  cout << "[4] printar a lista dos clientes.\n\n";
   cout << "Insira um comando: ";
   cin >> numMenu;
 
