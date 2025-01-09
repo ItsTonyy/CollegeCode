@@ -18,7 +18,8 @@ void addText(mainNode *&head) {
   string text;
 
   cout << "Insira o texto a ser adicionado: ";
-  cin >> text;
+  cin.ignore();
+  getline(cin, text);
 
   if (head == nullptr) {
     mainNode *newNode = new mainNode(text);
@@ -43,6 +44,11 @@ void addText(mainNode *&head) {
 
 void removeText(mainNode *&head, int line) {
   mainNode *curr = head;
+
+  if (curr == nullptr) {
+    cout << "Nenhum texto adicionado.\n";
+    return;
+  }
 
   for (int i = 1; i < line; i++) {
     curr = curr->prox;
@@ -69,90 +75,97 @@ void removeText(mainNode *&head, int line) {
 
   curr->prox->ant = curr->ant;
   curr->ant->prox = curr->prox;
-  cout << "\n Linha número " << line << " removida.\n";
+  cout << "\n Linha numero " << line << " removida.\n";
 }
 
-void fowardTransversal(mainNode *&head) {
+void backwardTransversal(mainNode *&head) {
   mainNode *curr = head;
-  cout << "\n";
 
   if (curr == nullptr) {
-    cout << "Lista vazia." << endl;
+    cout << "\nLista vazia." << endl;
 
     return;
+  }
+
+  while(curr->prox != nullptr) {
+    curr = curr->prox;
   }
 
   while (curr != nullptr) {
     cout << "'" << curr->info << "'" << endl;
 
-    curr = curr->prox;
+    curr = curr->ant;
   }
 }
 
 void MoveLine(mainNode *&head, int l1, int l2) {
-  int numberOfLines = 0;
-  mainNode *temp = head;
-  mainNode *L1 = head;
-  mainNode *L2 = head;
-
-  for (int i = 1; i != l1; i++) {
-    L1 = L1->prox;
-  }
-
-  for (int i = 1; i != l2; i++) {
-    L2 = L2->prox;
-  }
-
-  while (temp != nullptr) {
-    numberOfLines++;
-    temp = temp->prox;
-  }
-
-  cout << "Numero de linhas: " << numberOfLines;
-
-  if (l1 > numberOfLines) {
-    cout << "Numero de linha excedidas.";
-    exit(0);
-  }
-
-  if (l2 > numberOfLines) {
-    mainNode *lastText = head;
-    while (lastText->prox != nullptr) {
-      lastText = lastText->prox;
+    if (head == nullptr) {
+      cout << "Lista vazia.\n";
+      return;
     }
-    lastText->prox = L2;
-    L2->ant = lastText;
-    return;
-  }
 
-  // l1 está logo após l2
-  if (L2->prox == L1) {
-    L2->prox = L1->prox;
-    L1->prox = L2;
+    int numberOfLines = 0;
+    mainNode *temp = head;
+    mainNode *L1 = nullptr;
+    mainNode *L2 = nullptr;
+
+    for (int i = 1; temp != nullptr; i++) {
+      if (i == l1) L1 = temp;
+      if (i == l2) L2 = temp;
+      numberOfLines++;
+      temp = temp->prox;
+    }
+
+    if (l2 > numberOfLines || L2 == nullptr) {
+      cout << "L2 ultrapassa o número de linhas. L1 movido para o final.\n";
+
+
+      if (L1->ant != nullptr) L1->ant->prox = L1->prox;
+      if (L1->prox != nullptr) L1->prox->ant = L1->ant;
+
+
+      if (L1 == head) head = L1->prox;
+
+
+      temp = head;
+      while (temp->prox != nullptr) {
+          temp = temp->prox;
+      }
+      temp->prox = L1;
+      L1->ant = temp;
+      L1->prox = nullptr;
+
+      return;
+    }
+
+    if (L1 == nullptr || l1 > numberOfLines) {
+      cout << "Numero de linha L1 excedido.\n";
+      return;
+    }
+
+    if (L1 == L2) {
+        cout << "L1 e L2 sao iguais. sem movimentações.\n";
+        return;
+    }
+
+    if (L1->ant != nullptr) L1->ant->prox = L1->prox;
+    if (L1->prox != nullptr) L1->prox->ant = L1->ant;
+
+    
+    if (L1 == head) head = L1->prox;
+
+    if (L2 == head) {
+      head = L1; 
+    }
+
+    if (L2->ant != nullptr) L2->ant->prox = L1;
     L1->ant = L2->ant;
+    L1->prox = L2;
     L2->ant = L1;
 
-    return;
-  }
-
-  // l1 está antes de l2
-  if (L2->ant == L1) {
-    L1->prox = L2->prox;
-    L2->ant = L1->ant;
-    L1->ant = L2;
-    L2->prox = L1;
-
-    return;
-  }
-
-  mainNodePtr L1Prox = L1->prox;
-  mainNodePtr L1Ant = L1->ant;
-
-  L1->ant = L2->ant;
-  L1->prox = L2->prox;
-  L2->prox = L1Prox;
-  L2->ant = L1Ant;
+    cout << "Linha movida com sucesso.\n";
 }
+
 
 int menu() {
   int numMenu;
@@ -176,7 +189,6 @@ int main() {
   cout << "Bem vindo ao sistema de manuntencao de textos!\n";
   cout << "-----------------------------------------------------\n";
   do {
-    int clientCode, productCode;
     userChoice = menu();
 
     switch (userChoice) {
@@ -193,14 +205,13 @@ int main() {
       removeText(head, line);
       break;
     case 3:
-      fowardTransversal(head);
+      backwardTransversal(head);
       break;
     case 4:
       int l1, l2;
       cout << "\nQual linha deseja mover: ";
       cin >> l1;
-      cout << "\nPara qual linha deseja botar a linha escolhida no passo "
-              "anterior: ";
+      cout << "\nPara qual linha deseja botar a linha escolhida no passo anterior: ";
       cin >> l2;
 
       MoveLine(head, l1, l2);
