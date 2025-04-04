@@ -19,13 +19,12 @@ void searchPattern(FILE *file, char *word) {
 }
 
 int main(int argc, char *argv[]) {
-  for (int i = 1; i < argc - 1; i++) {
-   
-    if(argc == 1) {
-      printf("wgrep: searchterm [file ...]\n");
-      return 1;
-    }
+  if(argc == 1) {
+    printf("wgrep: searchterm [file ...]\n");
+    return 1;
+  }
 
+  for (int i = 1; i < argc - 1; i++) {
     FILE *fp = fopen(argv[i + 1], "r");
 
     if(fp == NULL) {

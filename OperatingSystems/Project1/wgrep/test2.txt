@@ -1,2 +1,4 @@
 this is another file
 about to be cat'd too
+boom
+you're still here
