@@ -21,12 +21,10 @@ int main(int argc, char *argv[]) {
       return 1;
     }
 
-    while((buffer, BUFFER_SIZE, fp)) {
+    while(fgets(buffer, BUFFER_SIZE, fp) != NULL) {
       printf("%s", buffer);
     }
-
-    printf("\n\n");
-
+    
     fclose(fp);
   }
   return 0;
