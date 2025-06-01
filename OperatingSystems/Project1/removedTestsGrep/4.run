@@ -1,0 +1,1 @@
+cat tests/1.in | ./wgrep words

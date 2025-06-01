@@ -7,12 +7,12 @@
 //argv = array de strings que contém todos os argumentos passados (incluindo a própria função)
 
 int main(int argc, char *argv[]) {
+  if(argc == 1) {
+    return 1;
+  }
+
   for (int i = 1; i < argc; i++) {
     char buffer[BUFFER_SIZE];
-
-    if(argc == 1) {
-      return 1;
-    }
 
     FILE *fp = fopen(argv[i], "r");
 
