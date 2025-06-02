@@ -1,3 +1,5 @@
+package twentyThree.one;
+
 import java.util.List;
 
 interface Comestivel {
@@ -23,3 +25,5 @@ public class Main {
 
   }
 }
+
+// didn't finished the first question, the answer (which is not fully here) is quite complex so something might be wrong
