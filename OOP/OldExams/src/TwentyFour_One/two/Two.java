@@ -72,7 +72,7 @@ class Utils {
 
     for (int i = 0; i < lista.size(); i++) {
       for (int j = i + 1; j < lista.size(); j++) {
-        if(plantasArray[j].getTamanho() > plantasArray[i].getTamanho() ) {
+        if(plantasArray[j].getTamanho() > plantasArray[i].getTamanho()) {
           Planta temp = plantasArray[j];
           plantasArray[j] = plantasArray[i];
           plantasArray[i] = temp;
@@ -111,7 +111,7 @@ public class Two {
     Planta[] plantasOrdenadas = Utils.ordena(listaPlantas);
 
     for(Planta p : plantasOrdenadas) {
-      System.out.println(p);
+      System.out.println(p.toString());
     }
   }
 }
