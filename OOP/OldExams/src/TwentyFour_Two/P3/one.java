@@ -13,7 +13,7 @@ public class one {
     private String placa, modelo;
     private double precoDiaria;
 
-     public Veiculo(String placa) {
+    public Veiculo(String placa) {
       this.placa = placa;
     }
 
