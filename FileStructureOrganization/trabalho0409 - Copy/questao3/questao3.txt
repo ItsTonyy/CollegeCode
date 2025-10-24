@@ -1,0 +1,18 @@
+Modos de Abertura - segundo parâmetro da função fopen
+
+r - abre o arquivo para apenas e somente leitura, começando pelo inicio do arquivo
+
+r+ - abre o arquivo tanto para leitura como para escrita, começando pelo inicio do arquivo
+
+w - abre o arquivo para escrita, se o arquivo não existir será criado, se já existir terá seu conteúdo apagado antes
+que novos dados sejam escritos. Começa pelo inicio do arquivo.
+
+w+ - abre o arquivo tanto para escrita como para leitura, se o arquivo não existir será criado,
+se já existir terá seu conteúdo apagado antes que novos dados sejam escritos. Começa pelo inicio do arquivo.
+
+a - abre um arquivo para que novos dados sejam anexados aos existentes, se o arquivo não existir será criado.
+Começa pelo final do arquivo.
+
+a+ - abre um arquivo tanto para leitura como para anexar novos dados. Se o arquivo não existir será criado. A anexação
+ocorre no final do arquivo, a posição incicial da leitura não é especificada pelo POSIX, podendo variar de acordo 
+com a plataforma onde se está sendo utilizada a função.
